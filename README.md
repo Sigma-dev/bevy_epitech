@@ -143,7 +143,7 @@ To test your bevy capabilities, let's try and make it so the player shoots in al
 We don't want Pedro to fire every frame, so one way to add a delay is to only run the system every x seconds using timers:
 
 ```cpp
-  .add_system(shoot_projectiles.run_if(on_timer(Duration::from_secs_f32(0.5))))
+  .add_systems(Update, shoot_projectiles.run_if(on_timer(Duration::from_secs_f32(0.5)))) // Don't forget to import Duration and on_timer (use VSCode's quick fix feature)
 ```
 
 If you then create a system function called shoot projectile, it should be called twice per second.
